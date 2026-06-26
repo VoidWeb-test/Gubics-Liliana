@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gubics Liliána – Lashes & PMU. Sminktetoválás, tetoválás eltávolítás, műszempilla-építés. Szentgotthárd. Permanent Makeup, Tattoo Entfernung, Wimpernverlängerung." />
+  <title>Gubics Liliána – Lashes & PMU | Szentgotthárd</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* ══════════════════════════════════════════════════
+       RESET & BASE
+    ══════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #121212;
+      color: #F5F0E8;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ══════════════════════════════════════════════════
+       DESIGN TOKENS
+    ══════════════════════════════════════════════════ */
+    :root {
+      --black:       #0C0C0C;
+      --surface:     #121212;
+      --surface-2:   #1A1A1A;
+      --surface-3:   #222222;
+      --gold:        #D4AF37;
+      --gold-dim:    rgba(212,175,55,0.15);
+      --gold-border: rgba(212,175,55,0.3);
+      --cream:       #F5F0E8;
+      --muted:       #888880;
+      --nav-h:       72px;
+
+      --font-display: 'Cinzel', serif;
+      --font-italic:  'Cormorant Garamond', serif;
+      --font-body:    'Montserrat', sans-serif;
+
+      --radius:       6px;
+      --radius-lg:    14px;
+      --transition:   0.28s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* ══════════════════════════════════════════════════
+       TYPOGRAPHY
+    ══════════════════════════════════════════════════ */
+    h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.12; }
+    h1 { font-size: clamp(2rem, 5.5vw, 3.8rem); font-weight: 600; letter-spacing: 0.06em; }
+    h2 { font-size: clamp(1.5rem, 3.5vw, 2.4rem); font-weight: 600; letter-spacing: 0.1em; }
+    h3 { font-size: 1rem; font-weight: 600; letter-spacing: 0.1em; }
+    p  { color: var(--muted); font-size: 0.9rem; line-height: 1.75; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .eyebrow::before, .eyebrow::after {
+      content: '';
+      display: inline-block;
+      width: 22px; height: 1px;
+      background: var(--gold);
+    }
+
+    /* ══════════════════════════════════════════════════
+       LAYOUT
+    ══════════════════════════════════════════════════ */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+    .section { padding: 100px 0; }
+    .section--alt { background: var(--surface-2); }
+
+    /* ══════════════════════════════════════════════════
+       BUTTONS
+    ══════════════════════════════════════════════════ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      border: none;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
+    }
+    .btn--gold {
+      background: var(--gold);
+      color: #0C0C0C;
+    }
+    .btn--gold:hover {
+      background: #e8c840;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(212,175,55,0.35);
+    }
+    .btn--outline-gold {
+      background: transparent;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+    }
+    .btn--outline-gold:hover {
+      background: var(--gold-dim);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(212,175,55,0.2);
+    }
+
+    /* ══════════════════════════════════════════════════
+       NAVBAR
+    ══════════════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: rgba(12,12,12,0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--gold-border);
+      transition: background 0.4s;
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--nav-h);
+      gap: 20px;
+    }
+    .nav__logo {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      color: var(--cream);
+      flex-shrink: 0;
+    }
+    .nav__logo span { color: var(--gold); }
+    .nav__links {
+      display: flex;
+      gap: 32px;
+    }
+    .nav__links a {
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color var(--transition);
+    }
+    .nav__links a:hover { color: var(--gold); }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 1.5px;
+      background: var(--cream);
+      border-radius: 1px;
+      transition: 0.3s;
+    }
+
+    /* ══════════════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: var(--nav-h);
+      position: relative;
+      overflow: hidden;
+      background: var(--black);
+    }
+    /* Ambient gold radial glow in background */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%; right: -15%;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,175,55,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -10%; left: -10%;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,175,55,0.04) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+      padding: 80px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(212,175,55,0.1);
+      border: 1px solid var(--gold-border);
+      color: var(--gold);
+      font-family: var(--font-body);
+      font-size: 0.63rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 7px 16px;
+      border-radius: 50px;
+      margin-bottom: 28px;
+    }
+    .hero__badge::before { content: '◆'; font-size: 0.45rem; }
+
+    .hero__title { color: var(--cream); margin-bottom: 22px; }
+    .hero__title .italic-line {
+      font-family: var(--font-italic);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+      color: var(--gold);
+      display: block;
+      letter-spacing: 0.04em;
+    }
+
+    .hero__services {
+      margin-bottom: 36px;
+    }
+    .hero__service-item {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .hero__service-item:last-child { border-bottom: none; }
+    .svc-hu {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--cream);
+    }
+    .svc-sep {
+      color: var(--gold);
+      font-size: 0.6rem;
+    }
+    .svc-de {
+      font-family: var(--font-italic);
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .hero__cta { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* ══ SIGNATURE: GL Monogram Composition ══════════════
+       CSS-only — two overlapping letterforms, gold frame,
+       ambient glow. Directly references the brand image.
+    ══════════════════════════════════════════════════════ */
+    .monogram-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .monogram-outer {
+      position: relative;
+      width: min(380px, 90vw);
+      height: min(380px, 90vw);
+    }
+    /* Outer thin gold frame */
+    .monogram-frame {
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--gold-border);
+      border-radius: 2px;
+    }
+    /* Inner inset frame */
+    .monogram-frame-inner {
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 1px;
+    }
+    /* Ambient glow behind */
+    .monogram-glow {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(212,175,55,0.07) 0%, transparent 70%);
+      border-radius: 2px;
+      animation: glowPulse 4s ease-in-out infinite;
+    }
+    @keyframes glowPulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.5; }
+    }
+    /* Big background GL letters */
+    .monogram-bg-gl {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 22vw, 9rem);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      color: rgba(212,175,55,0.08);
+      user-select: none;
+      pointer-events: none;
+    }
+    /* Foreground script name */
+    .monogram-name {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .mono-script {
+      font-family: var(--font-italic);
+      font-size: clamp(1.3rem, 4.5vw, 2rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+    }
+    .mono-tagline {
+      font-family: var(--font-display);
+      font-size: clamp(0.5rem, 1.5vw, 0.65rem);
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      color: rgba(212,175,55,0.6);
+      text-transform: uppercase;
+    }
+    /* Corner ornaments */
+    .monogram-outer .corner {
+      position: absolute;
+      width: 14px; height: 14px;
+    }
+    .monogram-outer .corner::before,
+    .monogram-outer .corner::after {
+      content: '';
+      position: absolute;
+      background: var(--gold);
+    }
+    .monogram-outer .corner::before { width: 100%; height: 1.5px; top: 0; left: 0; }
+    .monogram-outer .corner::after  { width: 1.5px; height: 100%; top: 0; left: 0; }
+    .monogram-outer .corner.tl { top: 0; left: 0; }
+    .monogram-outer .corner.tr { top: 0; right: 0; transform: scaleX(-1); }
+    .monogram-outer .corner.bl { bottom: 0; left: 0; transform: scaleY(-1); }
+    .monogram-outer .corner.br { bottom: 0; right: 0; transform: scale(-1); }
+
+    /* ══════════════════════════════════════════════════
+       SERVICES / PRICE SECTION
+    ══════════════════════════════════════════════════ */
+    .price-section { background: var(--surface); }
+
+    .price-category { margin-bottom: 60px; }
+    .price-category:last-child { margin-bottom: 0; }
+
+    .price-cat-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--gold-border);
+    }
+    .price-cat-header .cat-icon {
+      width: 36px; height: 36px;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .price-cat-header h3 {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .price-cat-header .cat-de {
+      font-family: var(--font-italic);
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .price-table { width: 100%; border-collapse: collapse; }
+    .price-table tr {
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: background var(--transition);
+    }
+    .price-table tr:hover { background: rgba(212,175,55,0.04); }
+    .price-table tr:last-child { border-bottom: none; }
+    .price-table td {
+      padding: 13px 8px;
+      font-size: 0.82rem;
+      vertical-align: middle;
+    }
+    .td-name {
+      font-weight: 500;
+      color: var(--cream);
+      width: 40%;
+    }
+    .td-name-de {
+      font-family: var(--font-italic);
+      font-style: italic;
+      color: var(--muted);
+      font-size: 0.78rem;
+      width: 30%;
+    }
+    .td-price {
+      text-align: right;
+      white-space: nowrap;
+    }
+    .price-huf {
+      font-family: var(--font-body);
+      font-weight: 600;
+      color: var(--cream);
+      font-size: 0.85rem;
+    }
+    .price-eur {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      color: var(--gold);
+      margin-left: 6px;
+    }
+    .price-free {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #6BBF8E;
+      text-transform: uppercase;
+    }
+    .price-note {
+      font-size: 0.75rem;
+      font-style: italic;
+      color: var(--muted);
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-left: 2px solid var(--gold-border);
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════════════════════
+       GALLERY (Social Proof)
+    ══════════════════════════════════════════════════ */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .gallery-cell {
+      aspect-ratio: 4/5;
+      border-radius: var(--radius-lg);
+      background: var(--surface-3);
+      border: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+    .gallery-cell:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold-border);
+    }
+    /* Decorative shimmer inside placeholder */
+    .gallery-cell::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 40% 30%, rgba(212,175,55,0.04) 0%, transparent 60%);
+    }
+    .gallery-cell__label {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 14px;
+      font-family: var(--font-italic);
+      font-style: italic;
+      font-size: 0.82rem;
+      color: rgba(212,175,55,0.7);
+      background: linear-gradient(to top, rgba(12,12,12,0.85) 0%, transparent 100%);
+    }
+    .gallery-cell__icon {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -70%);
+      font-size: 1.6rem;
+      color: rgba(212,175,55,0.12);
+    }
+    .gallery-cta {
+      text-align: center;
+    }
+    .btn--insta {
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      color: white;
+      border: none;
+      font-size: 0.72rem;
+    }
+    .btn--insta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(253,29,29,0.25);
+      filter: brightness(1.1);
+    }
+
+    /* ══════════════════════════════════════════════════
+       CONTACT
+    ══════════════════════════════════════════════════ */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .contact-info h2 { margin-bottom: 14px; }
+    .contact-info > p { margin-bottom: 32px; }
+
+    .contact-details { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+    .cd {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 0.85rem;
+      color: var(--cream);
+    }
+    .cd__icon {
+      width: 36px; height: 36px;
+      flex-shrink: 0;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+      font-size: 0.8rem;
+    }
+    .cd a { color: var(--gold); transition: color var(--transition); }
+    .cd a:hover { color: var(--cream); }
+    .cd__sub {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .social-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface-3);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 10px 16px;
+      border-radius: var(--radius);
+      transition: border-color var(--transition), color var(--transition), background var(--transition);
+    }
+    .social-btn:hover {
+      border-color: var(--gold-border);
+      color: var(--gold);
+      background: var(--gold-dim);
+    }
+
+    /* Form */
+    .contact-form {
+      background: var(--surface-2);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+    }
+    .contact-form h3 {
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .contact-form > p { margin-bottom: 28px; font-size: 0.82rem; }
+
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.63rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: var(--radius);
+      padding: 12px 15px;
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(136,136,128,0.5); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: rgba(212,175,55,0.5);
+      background: rgba(212,175,55,0.04);
+      box-shadow: 0 0 0 3px rgba(212,175,55,0.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: '▾';
+      position: absolute; right: 13px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold); font-size: 0.75rem;
+      pointer-events: none;
+    }
+    .form-group select { cursor: pointer; padding-right: 32px; }
+    .form-group select option { background: #1A1A1A; color: var(--cream); }
+    .form-submit { width: 100%; justify-content: center; margin-top: 6px; }
+
+    /* ══════════════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════════════ */
+    .footer {
+      background: var(--black);
+      border-top: 1px solid var(--gold-border);
+      padding: 36px 0;
+    }
+    .footer__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer__brand {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      color: rgba(212,175,55,0.6);
+    }
+    .footer__copy {
+      font-size: 0.68rem;
+      color: rgba(136,136,128,0.5);
+      letter-spacing: 0.04em;
+    }
+
+    /* ══════════════════════════════════════════════════
+       SECTION HEADER
+    ══════════════════════════════════════════════════ */
+    .section-header { text-align: center; max-width: 620px; margin: 0 auto 64px; }
+    .section-header h2 { margin-bottom: 14px; }
+    .section-header p { font-size: 0.88rem; }
+    .section-divider {
+      width: 52px; height: 1px;
+      background: var(--gold);
+      margin: 16px auto 0;
+    }
+
+    /* ══════════════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .section { padding: 70px 0; }
+      .hero__grid { grid-template-columns: 1fr; gap: 48px; }
+      .monogram-wrap { display: none; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav__links { display: none; }
+      .hamburger { display: flex; }
+    }
+    @media (max-width: 640px) {
+      .section { padding: 52px 0; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .contact-form { padding: 26px 18px; }
+      .price-table td { padding: 11px 4px; font-size: 0.78rem; }
+      .td-name-de { display: none; }
+      .footer__inner { flex-direction: column; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .monogram-glow { animation: none; }
+      * { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════ NAVBAR ════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="#" class="nav__logo">
+          <span>GL</span> — Gubics Liliána
+        </a>
+        <ul class="nav__links" id="navLinks">
+          <li><a href="#services">Árlista</a></li>
+          <li><a href="#gallery">Galéria</a></li>
+          <li><a href="#contact">Kapcsolat</a></li>
+        </ul>
+        <a href="#contact" class="btn btn--outline-gold" style="font-size:0.68rem; padding:10px 20px; letter-spacing:0.12em;">
+          Időpontfoglalás
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menü">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════════════════ HERO ══════════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero__grid">
+
+        <!-- Left: Text -->
+        <div>
+          <div class="hero__badge">Szentgotthárd &nbsp;·&nbsp; Fürstenfeld környéke</div>
+          <h1 class="hero__title">
+            Emeld ki a<br>
+            <span class="italic-line">természetes szépséged.</span>
+          </h1>
+
+          <div class="hero__services">
+            <div class="hero__service-item">
+              <span class="svc-hu">Sminktetoválás</span>
+              <span class="svc-sep">◆</span>
+              <span class="svc-de">Permanent Makeup</span>
+            </div>
+            <div class="hero__service-item">
+              <span class="svc-hu">Tetoválás eltávolítás</span>
+              <span class="svc-sep">◆</span>
+              <span class="svc-de">Tattoo Entfernung</span>
+            </div>
+            <div class="hero__service-item">
+              <span class="svc-hu">Műszempilla-építés</span>
+              <span class="svc-sep">◆</span>
+              <span class="svc-de">Wimpernverlängerung</span>
+            </div>
+          </div>
+
+          <div class="hero__cta">
+            <a href="#contact" class="btn btn--gold">Időpontot kérek &nbsp;/&nbsp; Termin buchen</a>
+            <a href="#services" class="btn btn--outline-gold">Árlista &nbsp;/&nbsp; Preisliste</a>
+          </div>
+        </div>
+
+        <!-- Right: GL Monogram (signature) -->
+        <div class="monogram-wrap">
+          <div class="monogram-outer">
+            <div class="monogram-glow"></div>
+            <div class="monogram-frame"></div>
+            <div class="monogram-frame-inner"></div>
+            <div class="monogram-bg-gl">GL</div>
+            <div class="monogram-name">
+              <span class="mono-script">Gubics Liliána</span>
+              <span class="mono-tagline">Lashes &nbsp;·&nbsp; PMU</span>
+            </div>
+            <div class="corner tl"></div>
+            <div class="corner tr"></div>
+            <div class="corner bl"></div>
+            <div class="corner br"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ SERVICES / ÁRLISTA ════════════════ -->
+  <section class="section section--alt price-section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">Árlista / Preisliste</div>
+        <h2>Szolgáltatások és árak</h2>
+        <p>Az árak minden esetben tartalmazzák az első ingyenes korrekciót (3 hónapon belül).</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <!-- 1. SMINKTETOVÁLÁS - SZEMÖLDÖK -->
+      <div class="price-category">
+        <div class="price-cat-header">
+          <div class="cat-icon"><i class="fa-solid fa-feather"></i></div>
+          <div>
+            <h3>Sminktetoválás — Szemöldök</h3>
+            <span class="cat-de">Permanent Makeup — Augenbrauen</span>
+          </div>
+        </div>
+        <table class="price-table">
+          <tr>
+            <td class="td-name">Magic Shading</td>
+            <td class="td-name-de">Magic Shading Brows</td>
+            <td class="td-price"><span class="price-huf">60 000 Ft</span><span class="price-eur">180 €</span></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- 2. SMINKTETOVÁLÁS - AJAK -->
+      <div class="price-category">
+        <div class="price-cat-header">
+          <div class="cat-icon"><i class="fa-solid fa-lips fa-regular"></i></div>
+          <div>
+            <h3>Sminktetoválás — Ajak</h3>
+            <span class="cat-de">Permanent Makeup — Lippen</span>
+          </div>
+        </div>
+        <table class="price-table">
+          <tr>
+            <td class="td-name">Aquarell Lips</td>
+            <td class="td-name-de">Aquarell Lips</td>
+            <td class="td-price"><span class="price-huf">70 000 Ft</span><span class="price-eur">200 €</span></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- 3. SMINKTETOVÁLÁS - SZEMHÉJ -->
+      <div class="price-category">
+        <div class="price-cat-header">
+          <div class="cat-icon"><i class="fa-solid fa-eye"></i></div>
+          <div>
+            <h3>Sminktetoválás — Szemhéj</h3>
+            <span class="cat-de">Permanent Makeup — Lidstrich</span>
+          </div>
+        </div>
+        <table class="price-table">
+          <tr>
+            <td class="td-name">Lash Line Up <span style="font-size:0.72rem; color:var(--muted);">(szempillatő sűrítés)</span></td>
+            <td class="td-name-de">Lash Line Up</td>
+            <td class="td-price"><span class="price-huf">40 000 Ft</span><span class="price-eur">140 €</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">Classic Liner <span style="font-size:0.72rem; color:var(--muted);">(normál tusvonal)</span></td>
+            <td class="td-name-de">Classic Liner</td>
+            <td class="td-price"><span class="price-huf">50 000 Ft</span><span class="price-eur">160 €</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">Soft Liner <span style="font-size:0.72rem; color:var(--muted);">(púderes hatás)</span></td>
+            <td class="td-name-de">Soft Liner</td>
+            <td class="td-price"><span class="price-huf">60 000 Ft</span><span class="price-eur">180 €</span></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- 4. KORREKCIÓ -->
+      <div class="price-category">
+        <div class="price-cat-header">
+          <div class="cat-icon"><i class="fa-solid fa-rotate-left"></i></div>
+          <div>
+            <h3>Sminktetoválás — Korrekció</h3>
+            <span class="cat-de">Nachbehandlung</span>
+          </div>
+        </div>
+        <table class="price-table">
+          <tr>
+            <td class="td-name">1. korrekció (3 hónapon belül)</td>
+            <td class="td-name-de">Erste Nachbehandlung (innerhalb 3 Monaten)</td>
+            <td class="td-price"><span class="price-free">Ingyenes / Gratis</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">További korrekció</td>
+            <td class="td-name-de">Weitere Nachbehandlung</td>
+            <td class="td-price"><span class="price-huf">25 000 Ft</span><span class="price-eur">75 €</span></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- 5. TETOVÁLÁS ELTÁVOLÍTÁS - SMINK -->
+      <div class="price-category">
+        <div class="price-cat-header">
+          <div class="cat-icon"><i class="fa-solid fa-eraser"></i></div>
+          <div>
+            <h3>Sminktetoválás eltávolítás (enzimes)</h3>
+            <span class="cat-de">Permanent Makeup Entfernung</span>
+          </div>
+        </div>
+        <table class="price-table">
+          <tr>
+            <td class="td-name">Szemhéj</td>
+            <td class="td-name-de">Lidstrich</td>
+            <td class="td-price"><span class="price-huf">20 000 Ft</span><span class="price-eur">74 € / alk.</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">Szemöldök</td>
+            <td class="td-name-de">Augenbrauen</td>
+            <td class="td-price"><span class="price-huf">25 000 Ft</span><span class="price-eur">86 € / alk.</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">Ajak</td>
+            <td class="td-name-de">Lippen</td>
+            <td class="td-price"><span class="price-huf">30 000 Ft</span><span class="price-eur">98 € / alk.</span></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- 6. TETOVÁLÁS ELTÁVOLÍTÁS - TEST -->
+      <div class="price-category">
+        <div class="price-cat-header">
+          <div class="cat-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <div>
+            <h3>Testtetoválás eltávolítás</h3>
+            <span class="cat-de">Körper Tattoo Entfernung</span>
+          </div>
+        </div>
+        <table class="price-table">
+          <tr>
+            <td class="td-name">3×3 cm alatt</td>
+            <td class="td-name-de">Unter 3×3 cm</td>
+            <td class="td-price"><span class="price-huf">10 000 Ft</span><span class="price-eur">50 € / alk.</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">3×3 cm</td>
+            <td class="td-name-de">3×3 cm</td>
+            <td class="td-price"><span class="price-huf">15 000 Ft</span><span class="price-eur">62 € / alk.</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">5×5 cm</td>
+            <td class="td-name-de">5×5 cm</td>
+            <td class="td-price"><span class="price-huf">25 000 Ft</span><span class="price-eur">86 € / alk.</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">8×8 cm</td>
+            <td class="td-name-de">8×8 cm</td>
+            <td class="td-price"><span class="price-huf">40 000 Ft</span><span class="price-eur">122 € / alk.</span></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- 7. MŰSZEMPILLA ÉPÍTÉS -->
+      <div class="price-category">
+        <div class="price-cat-header">
+          <div class="cat-icon"><i class="fa-solid fa-star"></i></div>
+          <div>
+            <h3>Műszempilla-építés</h3>
+            <span class="cat-de">Wimpernverlängerung</span>
+          </div>
+        </div>
+        <table class="price-table">
+          <tr><td class="td-name">1D — Új szett</td><td class="td-name-de">1D Neues Set</td><td class="td-price"><span class="price-huf">10 500 Ft</span><span class="price-eur">35 €</span></td></tr>
+          <tr><td class="td-name">1D — Töltés</td><td class="td-name-de">1D Auffüllen</td><td class="td-price"><span class="price-huf">7 500 Ft</span><span class="price-eur">28 €</span></td></tr>
+          <tr><td class="td-name">2D — Új szett</td><td class="td-name-de">2D Neues Set</td><td class="td-price"><span class="price-huf">11 500 Ft</span><span class="price-eur">38 €</span></td></tr>
+          <tr><td class="td-name">2D — Töltés</td><td class="td-name-de">2D Auffüllen</td><td class="td-price"><span class="price-huf">8 500 Ft</span><span class="price-eur">31 €</span></td></tr>
+          <tr><td class="td-name">3D — Új szett</td><td class="td-name-de">3D Neues Set</td><td class="td-price"><span class="price-huf">12 500 Ft</span><span class="price-eur">41 €</span></td></tr>
+          <tr><td class="td-name">3D — Töltés</td><td class="td-name-de">3D Auffüllen</td><td class="td-price"><span class="price-huf">9 500 Ft</span><span class="price-eur">34 €</span></td></tr>
+          <tr><td class="td-name">4D — Új szett</td><td class="td-name-de">4D Neues Set</td><td class="td-price"><span class="price-huf">13 500 Ft</span><span class="price-eur">44 €</span></td></tr>
+          <tr><td class="td-name">4D — Töltés</td><td class="td-name-de">4D Auffüllen</td><td class="td-price"><span class="price-huf">10 500 Ft</span><span class="price-eur">37 €</span></td></tr>
+          <tr><td class="td-name">5D — Új szett</td><td class="td-name-de">5D Neues Set</td><td class="td-price"><span class="price-huf">14 500 Ft</span><span class="price-eur">47 €</span></td></tr>
+          <tr><td class="td-name">5D — Töltés</td><td class="td-name-de">5D Auffüllen</td><td class="td-price"><span class="price-huf">11 500 Ft</span><span class="price-eur">40 €</span></td></tr>
+        </table>
+        <p class="price-note">HU: A töltés ára 3 héten belül vagy minimum 30%-os pillatöltöttség esetén érvényes. Ellenkező esetben új szett ára kerül felszámításra.<br>
+        DE: Der Auffüllpreis gilt innerhalb von 3 Wochen oder bei mindestens 30% erhaltenen Wimpern. Andernfalls wird der Preis für ein neues Set berechnet.</p>
+      </div>
+
+      <!-- 8. MŰSZEMPILLA LEOLDÁS -->
+      <div class="price-category">
+        <div class="price-cat-header">
+          <div class="cat-icon"><i class="fa-solid fa-droplet"></i></div>
+          <div>
+            <h3>Műszempilla leoldás</h3>
+            <span class="cat-de">Lashes entfernen</span>
+          </div>
+        </div>
+        <table class="price-table">
+          <tr>
+            <td class="td-name">Leoldás (saját munka)</td>
+            <td class="td-name-de">Mein Arbeit</td>
+            <td class="td-price"><span class="price-huf">4 000 Ft</span><span class="price-eur">20 €</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">Leoldás (más munkája)</td>
+            <td class="td-name-de">Nicht mein Arbeit</td>
+            <td class="td-price"><span class="price-huf">5 000 Ft</span><span class="price-eur">23 €</span></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- 9. STYLING -->
+      <div class="price-category">
+        <div class="price-cat-header">
+          <div class="cat-icon"><i class="fa-solid fa-sparkles"></i></div>
+          <div>
+            <h3>Styling</h3>
+            <span class="cat-de">Styling</span>
+          </div>
+        </div>
+        <table class="price-table">
+          <tr><td class="td-name">Szemöldök festés</td><td class="td-name-de">Augenbrauen färben</td><td class="td-price"><span class="price-huf">2 000 Ft</span><span class="price-eur">8 €</span></td></tr>
+          <tr><td class="td-name">Szempilla festés</td><td class="td-name-de">Wimpern färben</td><td class="td-price"><span class="price-huf">2 000 Ft</span><span class="price-eur">8 €</span></td></tr>
+          <tr><td class="td-name">Szempilla lifting</td><td class="td-name-de">Wimpern Lifting</td><td class="td-price"><span class="price-huf">8 000 Ft</span><span class="price-eur">35 €</span></td></tr>
+          <tr><td class="td-name">Szemöldök laminálás</td><td class="td-name-de">Augenbrauen Laminierung</td><td class="td-price"><span class="price-huf">8 000 Ft</span><span class="price-eur">35 €</span></td></tr>
+        </table>
+      </div>
+
+      <!-- 10. GYANTÁZÁS - NŐI -->
+      <div class="price-category">
+        <div class="price-cat-header">
+          <div class="cat-icon"><i class="fa-solid fa-venus"></i></div>
+          <div>
+            <h3>Gyantázás — Női</h3>
+            <span class="cat-de">Waxing — Damen</span>
+          </div>
+        </div>
+        <table class="price-table">
+          <tr><td class="td-name">Szemöldök</td><td class="td-name-de">Augenbrauen</td><td class="td-price"><span class="price-huf">1 500 Ft</span><span class="price-eur">6 €</span></td></tr>
+          <tr><td class="td-name">Bajusz</td><td class="td-name-de">Oberlippe</td><td class="td-price"><span class="price-huf">1 500 Ft</span><span class="price-eur">6 €</span></td></tr>
+          <tr><td class="td-name">Áll</td><td class="td-name-de">Kinn</td><td class="td-price"><span class="price-huf">1 500 Ft</span><span class="price-eur">6 €</span></td></tr>
+          <tr><td class="td-name">Hónalj</td><td class="td-name-de">Achseln</td><td class="td-price"><span class="price-huf">2 500 Ft</span><span class="price-eur">9 €</span></td></tr>
+          <tr><td class="td-name">Kar könyékig</td><td class="td-name-de">Arme bis Ellbogen</td><td class="td-price"><span class="price-huf">3 000 Ft</span><span class="price-eur">10 €</span></td></tr>
+          <tr><td class="td-name">Teljes kar</td><td class="td-name-de">Ganze Arme</td><td class="td-price"><span class="price-huf">4 000 Ft</span><span class="price-eur">12 €</span></td></tr>
+          <tr><td class="td-name">Láb térdig</td><td class="td-name-de">Beine bis Knie</td><td class="td-price"><span class="price-huf">4 000 Ft</span><span class="price-eur">13 €</span></td></tr>
+          <tr><td class="td-name">Teljes láb</td><td class="td-name-de">Ganze Beine</td><td class="td-price"><span class="price-huf">5 000 Ft</span><span class="price-eur">15 €</span></td></tr>
+        </table>
+      </div>
+
+      <!-- 11. GYANTÁZÁS - FÉRFI -->
+      <div class="price-category">
+        <div class="price-cat-header">
+          <div class="cat-icon"><i class="fa-solid fa-mars"></i></div>
+          <div>
+            <h3>Gyantázás — Férfi</h3>
+            <span class="cat-de">Waxing — Herren</span>
+          </div>
+        </div>
+        <table class="price-table">
+          <tr><td class="td-name">Hát</td><td class="td-name-de">Rücken</td><td class="td-price"><span class="price-huf">5 000 Ft</span><span class="price-eur">15 €</span></td></tr>
+          <tr><td class="td-name">Derék</td><td class="td-name-de">Taille</td><td class="td-price"><span class="price-huf">3 000 Ft</span><span class="price-eur">10 €</span></td></tr>
+          <tr><td class="td-name">Mellkas</td><td class="td-name-de">Brust</td><td class="td-price"><span class="price-huf">4 500 Ft</span><span class="price-eur">14 €</span></td></tr>
+          <tr><td class="td-name">Has</td><td class="td-name-de">Bauch</td><td class="td-price"><span class="price-huf">3 000 Ft</span><span class="price-eur">10 €</span></td></tr>
+          <tr><td class="td-name">Váll</td><td class="td-name-de">Schulter</td><td class="td-price"><span class="price-huf">2 500 Ft</span><span class="price-eur">9 €</span></td></tr>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════ GALLERY ═══════════════════════════ -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">Munkáink / Referenzen</div>
+        <h2>Galéria</h2>
+        <p>Kövess be Instagramon a legfrissebb munkáinkért és inspirációért.</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-cell">
+          <i class="fa-solid fa-feather gallery-cell__icon"></i>
+          <div class="gallery-cell__label">Magic Shading Szemöldök</div>
+        </div>
+        <div class="gallery-cell">
+          <i class="fa-solid fa-star gallery-cell__icon"></i>
+          <div class="gallery-cell__label">5D Műszempilla szett</div>
+        </div>
+        <div class="gallery-cell">
+          <i class="fa-solid fa-eye gallery-cell__icon"></i>
+          <div class="gallery-cell__label">Soft Liner PMU</div>
+        </div>
+        <div class="gallery-cell">
+          <i class="fa-solid fa-wand-magic-sparkles gallery-cell__icon"></i>
+          <div class="gallery-cell__label">Tetoválás eltávolítás</div>
+        </div>
+        <div class="gallery-cell">
+          <i class="fa-solid fa-droplet gallery-cell__icon"></i>
+          <div class="gallery-cell__label">Aquarell Lips</div>
+        </div>
+        <div class="gallery-cell">
+          <i class="fa-solid fa-sparkles gallery-cell__icon"></i>
+          <div class="gallery-cell__label">Szempilla lifting</div>
+        </div>
+      </div>
+
+      <div class="gallery-cta">
+        <a href="https://www.instagram.com/liliana.gubics_lashes.and.pmu"
+           target="_blank" rel="noopener"
+           class="btn btn--insta">
+          <i class="fa-brands fa-instagram"></i>
+          Kövess be Instagramon &nbsp;·&nbsp; Folge uns auf Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ CONTACT ════════════════════════════ -->
+  <section class="section section--alt" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">Kapcsolat / Kontakt</div>
+        <h2>Időpontfoglalás</h2>
+        <p>Írj vagy hívj bátran — 24 órán belül válaszolok.<br>Schreib oder ruf an — ich antworte innerhalb von 24 Stunden.</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Left: Info -->
+        <div class="contact-info">
+          <div class="contact-details">
+            <div class="cd">
+              <div class="cd__icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <div>9970 Szentgotthárd, Kossuth Lajos u. 20.</div>
+                <div class="cd__sub">~20 km von Fürstenfeld, Österreich</div>
+              </div>
+            </div>
+            <div class="cd">
+              <div class="cd__icon"><i class="fa-brands fa-whatsapp"></i></div>
+              <div>
+                <a href="tel:+36202504495">+36 20 250 4495</a>
+                <div class="cd__sub">Telefon &amp; WhatsApp</div>
+              </div>
+            </div>
+            <div class="cd">
+              <div class="cd__icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <a href="mailto:liliana.gubics.lashes.and.pmu@gmail.com"
+                   style="font-size:0.8rem; word-break:break-all;">
+                  liliana.gubics.lashes.and.pmu@gmail.com
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="https://www.instagram.com/liliana.gubics_lashes.and.pmu"
+               target="_blank" rel="noopener" class="social-btn">
+              <i class="fa-brands fa-instagram"></i> Instagram
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61572630307315"
+               target="_blank" rel="noopener" class="social-btn">
+              <i class="fa-brands fa-facebook"></i> Facebook
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="contact-form">
+          <h3>Időpontfoglalás / Termin buchen</h3>
+          <p>Töltsd ki az űrlapot és hamarosan jelentkezem!</p>
+
+          <form action="#" method="post" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label for="fname">Neve / Name</label>
+              <input type="text" id="fname" name="name" placeholder="Kovács Anna" required />
+            </div>
+            <div class="form-group">
+              <label for="fcontact">Telefon vagy e-mail / Telefon oder E-Mail *</label>
+              <input type="text" id="fcontact" name="contact" placeholder="+36 20 … / email@példa.hu" required />
+            </div>
+            <div class="form-group">
+              <label for="fservice">Kívánt szolgáltatás / Gewünschte Leistung</label>
+              <div class="select-wrap">
+                <select id="fservice" name="service">
+                  <option value="" disabled selected>– Kérem válasszon –</option>
+                  <optgroup label="Sminktetoválás / PMU">
+                    <option>Magic Shading Szemöldök / Brows</option>
+                    <option>Aquarell Lips / Ajaktetoválás</option>
+                    <option>Lash Line Up (Szemhéj)</option>
+                    <option>Classic Liner (Szemhéj)</option>
+                    <option>Soft Liner (Szemhéj)</option>
+                    <option>Korrekció / Nachbehandlung</option>
+                  </optgroup>
+                  <optgroup label="Tetoválás eltávolítás / Entfernung">
+                    <option>Sminktetoválás eltávolítás</option>
+                    <option>Testtetoválás eltávolítás</option>
+                  </optgroup>
+                  <optgroup label="Műszempilla / Wimpern">
+                    <option>Műszempilla építés — Új szett</option>
+                    <option>Műszempilla töltés</option>
+                    <option>Műszempilla leoldás</option>
+                    <option>Szempilla lifting / Szemöldök laminálás</option>
+                  </optgroup>
+                  <optgroup label="Styling / Gyantázás">
+                    <option>Szemöldök / Szempilla festés</option>
+                    <option>Gyantázás</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="fmsg">Üzenet / Nachricht</label>
+              <textarea id="fmsg" name="message" placeholder="Kérdésed, kért időpont, esetleges megjegyzés…"></textarea>
+            </div>
+            <button type="submit" class="btn btn--gold btn--lg form-submit">
+              Küldés &nbsp;/&nbsp; Absenden →
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ FOOTER ════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">GL — Gubics Liliána · Lashes & PMU</div>
+        <div class="footer__copy">© 2026 Gubics Liliána. Minden jog fenntartva. · Alle Rechte vorbehalten.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger
+    document.getElementById('hamburger').addEventListener('click', function () {
+      const links = document.getElementById('navLinks');
+      const open = links.style.display === 'flex';
+      if (open) {
+        links.style.display = 'none';
+      } else {
+        Object.assign(links.style, {
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'absolute',
+          top: '72px',
+          left: '0',
+          right: '0',
+          background: 'rgba(12,12,12,0.97)',
+          padding: '20px 28px',
+          gap: '18px',
+          borderTop: '1px solid rgba(212,175,55,0.2)',
+          backdropFilter: 'blur(16px)'
+        });
+      }
+    });
+
+    // Form submit
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.textContent = '✓ Elküldve! Hamarosan kereslek.';
+      btn.style.background = '#2d6e4e';
+      btn.style.color = '#fff';
+      btn.disabled = true;
+    }
+
+    // Scroll reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.07 });
+
+    document.querySelectorAll('.price-category, .gallery-cell, .contact-form, .contact-info').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(18px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      obs.observe(el);
+    });
+  </script>
+</body>
+</html>
